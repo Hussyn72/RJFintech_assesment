@@ -7,31 +7,9 @@ This project implements a concurrency-safe **Departmental Expense Wallet** syste
 - React + Tailwind CSS
 - JWT authentication + protected routes
 
-Detailed diagrams + full walkthrough:
-- `docs/ARCHITECTURE_AND_RUNBOOK.md`
-
-## Local Run (No Docker)
-
-## 1) Create DB in pgAdmin
-
-Create database:
-
-```sql
-CREATE DATABASE rj_fintech;
-```
-
-## 2) Backend setup
-
-```bash
-cd backend
-copy .env.example .env
-```
-
-Update `backend/.env` with your local credentials and JWT secret:
-
 ```env
 PORT=4000
-DATABASE_URL=postgres://postgres:YOUR_PASSWORD@localhost:5432/rj_fintech
+DATABASE_URL=postgres://postgres:YOUR_PASSWORD@localhost:5432/dbname
 NODE_ENV=development
 JWT_SECRET=your_long_random_secret
 ```
@@ -49,6 +27,7 @@ Backend URL: `http://localhost:4000`
 Seeded demo login password for all users: `Admin@123`
 
 Example user emails:
+
 - `engadmin1@rjfintech.local`
 - `mktadmin1@rjfintech.local`
 - `opsadmin1@rjfintech.local`
@@ -80,10 +59,12 @@ Frontend URL: `http://localhost:5173`
 ## API summary
 
 Public:
+
 - `GET /health`
 - `POST /auth/login`
 
 Protected (Bearer token required):
+
 - `GET /auth/me`
 - `GET /api/departments`
 - `GET /api/departments/:departmentId/users`
@@ -100,5 +81,3 @@ Payment payload:
   "idempotencyKey": "optional-unique-key"
 }
 ```
-
-Note: `userId` is no longer sent in payload; it is derived from JWT.
