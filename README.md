@@ -7,6 +7,8 @@ This project implements a concurrency-safe **Departmental Expense Wallet** syste
 - React + Tailwind CSS
 - JWT authentication + protected routes
 
+Setup env file
+
 ```env
 PORT=4000
 DATABASE_URL=postgres://postgres:YOUR_PASSWORD@localhost:5432/dbname
